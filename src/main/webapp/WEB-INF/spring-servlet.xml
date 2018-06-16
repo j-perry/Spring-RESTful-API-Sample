@@ -58,8 +58,6 @@
 	
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 	
-<!--     <context:property-placeholder location="classpath:application.properties"/> -->
-	
 	<!-- for processing requests with annotated controller methods and set Message Convertors from the list of convertors -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">

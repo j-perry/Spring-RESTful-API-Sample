@@ -3,11 +3,9 @@ package com.sample.spring.repository;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -19,8 +17,6 @@ import com.sample.spring.models.Customer;
 @Repository
 @Transactional(readOnly = true)
 public class CustomerDaoImpl implements CustomerDao {
-
-//	private static final Logger logger = LoggerFactory.getLogger(CustomerDaoImpl.class);
 	
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -58,10 +54,8 @@ public class CustomerDaoImpl implements CustomerDao {
 		return null;
 	}
 	
-	//SELECT c FROM Customer c JOIN c.purchases p WHERE p.customerId = :customerId
 	@SuppressWarnings("unchecked")
 	public Set<Customer> getPurchasesByCustomerId(long customerId) {
-		// String query = "SELECT purchase FROM Purchase purchase WHERE purchase.customer.customerId = :customerId";
 		String query = "SELECT c FROM Customer c JOIN c.purchases p WHERE p.customerId = :customerId";
 		Set<Customer> purchases = null;
 		
